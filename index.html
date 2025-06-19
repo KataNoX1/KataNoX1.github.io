@@ -4,141 +4,59 @@
   <meta charset="UTF-8">
   <title>Alexis Tyszka – Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0e0e0e;
-      --fg: #e0e0e0;
-      --accent: #64b5f6;
-      --accent-light: #90caf9;
-      --card: #1e1e1e;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Roboto Mono', monospace;
-      background: var(--bg);
-      color: var(--fg);
-    }
-
-    header {
-      background: #121212;
-      padding: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #333;
-    }
-
-    header h1 {
-      margin: 0;
-      color: var(--accent);
-    }
-
-    nav a {
-      margin-left: 2rem;
-      text-decoration: none;
-      color: var(--accent-light);
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-    }
-
-    section {
-      margin-bottom: 4rem;
-    }
-
-    .intro {
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    .intro h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--accent-light);
-    }
-
-    .card {
-      background: var(--card);
-      border-left: 4px solid var(--accent);
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1rem;
-      background-color: var(--accent);
-      color: black;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      color: #777;
-      padding: 1rem;
-      border-top: 1px solid #333;
-      background: #121212;
-    }
-  </style>
 </head>
 <body>
   <header>
     <h1>Alexis Tyszka</h1>
     <nav>
-      <a href="#about">A propos</a>
-      <a href="#projects">Projets</a>
-      <a href="#cv">CV</a>
-      <a href="#contact">Contact</a>
+      <ul>
+        <li><a href="#about">A propos</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
   </header>
+
   <main>
-    <section class="intro" id="about">
-      <h2>Bienvenue sur mon portfolio</h2>
-      <p>Étudiant en informatique passionné par le développement logiciel, l'optimisation système et la création de solutions concrètes. Actuellement en BUT à Sophia Tech, je cherche à intégrer une alternance à partir de septembre 2024.</p>
+    <section id="about">
+      <h2>Bienvenue</h2>
+      <p>Étudiant en informatique à l'IUT de Sophia Antipolis, passionné par le développement full-stack, les systèmes et les projets techniques. Actuellement en BUT3, je suis à la recherche d'une alternance pour septembre 2024.</p>
     </section>
 
     <section id="projects">
-      <h2>Mes projets</h2>
+      <h2>Projets</h2>
 
       <div class="card">
         <h3>Portail des projets étudiants</h3>
-        <p>Un hub centralisé GitHub/Hackster.io regroupant les projets de l'IUT avec documentation, Docker et navigation intuitive.</p>
+        <p>Hub GitHub/Hackster.io centralisant les projets de l'IUT avec documentation, Docker et navigation claire.</p>
       </div>
 
       <div class="card">
         <h3>Potify</h3>
-        <p>Application Java Swing pour lire et gérer des musiques locales avec interface personnalisée et système de playlists.</p>
+        <p>Application Java Swing pour lire des musiques locales avec playlists personnalisables.</p>
         <a href="./Potify/" class="button">Voir le projet</a>
       </div>
     </section>
 
     <section id="cv">
-      <h2>Mon CV</h2>
-      <p>Téléchargez mon CV en version PDF :</p>
+      <h2>CV</h2>
+      <p>Téléchargez mon CV au format PDF :</p>
       <a href="cv-alexis-tyszka.pdf" class="button" download>Télécharger</a>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email : <a href="mailto:alexis.tyszka@outlook.fr">alexis.tyszka@outlook.fr</a></p>
-      <p>LinkedIn : <a href="https://www.linkedin.com/in/alexis-tyszka-b0273b2b7/" target="_blank">alexis-tyszka</a></p>
-      <p>Basé à Callian (Var), France</p>
+      <ul>
+        <li>Email : <a href="mailto:alexis.tyszka@outlook.fr">alexis.tyszka@outlook.fr</a></li>
+        <li>LinkedIn : <a href="https://www.linkedin.com/in/alexis-tyszka-b0273b2b7/">alexis-tyszka</a></li>
+        <li>Localisation : Callian, France</li>
+      </ul>
     </section>
   </main>
+
   <footer>
     <p>&copy; 2025 Alexis Tyszka</p>
   </footer>
