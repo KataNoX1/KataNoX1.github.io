@@ -6,6 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    main {
+      padding-top: 100px;
+    }
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .about-grid > div {
+      flex: 1 1 300px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -23,7 +45,20 @@
   <main>
     <section id="about">
       <h2>Bienvenue</h2>
-      <p>Étudiant en informatique à l'IUT de Sophia Antipolis, passionné par le développement full-stack, les systèmes et les projets techniques. Actuellement en BUT3, je suis à la recherche d'une alternance pour septembre 2024.</p>
+      <div class="about-grid">
+        <div>
+          <p>Étudiant en informatique à l'IUT de Sophia Antipolis, passionné par le développement full-stack, les systèmes et les projets techniques.</p>
+          <p>Actuellement en BUT3, je suis à la recherche d'une alternance pour septembre 2025.</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li>Email : <a href="mailto:alexis.tyszka@outlook.fr">alexis.tyszka@outlook.fr</a></li>
+            <li>LinkedIn : <a href="https://www.linkedin.com/in/alexis-tyszka-b0273b2b7/">alexis-tyszka</a></li>
+            <li>Localisation : Callian, France</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="projects">
@@ -32,6 +67,7 @@
       <div class="card">
         <h3>Portail des projets étudiants</h3>
         <p>Hub GitHub/Hackster.io centralisant les projets de l'IUT avec documentation, Docker et navigation claire.</p>
+        <a href="https://www.hackster.io/" class="button" target="_blank">Voir sur Hackster.io</a>
       </div>
 
       <div class="card">
@@ -45,15 +81,6 @@
       <h2>CV</h2>
       <p>Téléchargez mon CV au format PDF :</p>
       <a href="cv-alexis-tyszka.pdf" class="button" download>Télécharger</a>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <ul>
-        <li>Email : <a href="mailto:alexis.tyszka@outlook.fr">alexis.tyszka@outlook.fr</a></li>
-        <li>LinkedIn : <a href="https://www.linkedin.com/in/alexis-tyszka-b0273b2b7/">alexis-tyszka</a></li>
-        <li>Localisation : Callian, France</li>
-      </ul>
     </section>
   </main>
 
