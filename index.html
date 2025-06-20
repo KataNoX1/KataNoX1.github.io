@@ -69,6 +69,7 @@
       border-radius: 5px;
       text-decoration: none;
       margin-top: 1rem;
+      cursor: pointer;
     }
     .button:hover {
       background-color: #90caf9;
@@ -85,7 +86,20 @@
       flex-direction: column;
       gap: 1rem;
     }
+    .toggle-content {
+      display: none;
+      margin-top: 1rem;
+    }
+    .toggle-content.active {
+      display: block;
+    }
   </style>
+  <script>
+    function toggleVisibility(id) {
+      const content = document.getElementById(id);
+      content.classList.toggle('active');
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -137,20 +151,26 @@
 
     <section id="experience">
       <h2>Expérience professionnelle</h2>
-      <ul>
-        <li><strong>Été 2023 – Evitech :</strong> Script Python + amélioration intranet</li>
-        <li><strong>Février 2019 – CPCP Télécom :</strong> Pose de fibre optique à Nice</li>
-        <li><strong>2016-2018 – Usby Escalade :</strong> Bénévole événements et compétitions</li>
-      </ul>
+      <button class="button" onclick="toggleVisibility('experience-details')">Afficher / Masquer les détails</button>
+      <div id="experience-details" class="toggle-content">
+        <ul>
+          <li><strong>Été 2023 – Evitech :</strong> Script Python + amélioration intranet</li>
+          <li><strong>Février 2019 – CPCP Télécom :</strong> Pose de fibre optique à Nice</li>
+          <li><strong>2016-2018 – Usby Escalade :</strong> Bénévole événements et compétitions</li>
+        </ul>
+      </div>
     </section>
 
     <section id="formation">
       <h2>Formation</h2>
-      <ul>
-        <li><strong>2022 – Aujourd'hui :</strong> BUT Informatique – IUT Sophia Antipolis</li>
-        <li><strong>2022 – 2024 :</strong> Cycle préparatoire intégré – Polytech Nice</li>
-        <li><strong>2019 – 2022 :</strong> Bac Général – Maths, NSI, Maths expertes – Mention Bien</li>
-      </ul>
+      <button class="button" onclick="toggleVisibility('formation-details')">Afficher / Masquer les détails</button>
+      <div id="formation-details" class="toggle-content">
+        <ul>
+          <li><strong>2022 – Aujourd'hui :</strong> BUT Informatique – IUT Sophia Antipolis</li>
+          <li><strong>2022 – 2024 :</strong> Cycle préparatoire intégré – Polytech Nice</li>
+          <li><strong>2019 – 2022 :</strong> Bac Général – Maths, NSI, Maths expertes – Mention Bien</li>
+        </ul>
+      </div>
     </section>
 
     <section id="contact">
