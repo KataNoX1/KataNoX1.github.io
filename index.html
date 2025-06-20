@@ -4,12 +4,18 @@
   <meta charset="UTF-8">
   <title>Alexis Tyszka – Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --accent: #64b5f6;
+    }
     body {
       margin: 0;
       scroll-behavior: smooth;
+      font-family: 'Roboto Mono', monospace;
+      background-color: #0e0e0e;
+      color: #e0e0e0;
     }
     header {
       position: fixed;
@@ -18,30 +24,66 @@
       z-index: 1000;
       background-color: #0e0e0e;
       transition: top 0.3s;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+    }
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     main {
-      padding-top: 100px;
+      padding-top: 120px;
+      padding-inline: 5vw;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
     }
-    .about-grid {
+    section {
+      grid-column: span 2;
+    }
+    .card {
+      background-color: #1e1e1e;
+      padding: 1.5rem;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    .button {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--accent);
+      color: black;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+    .button:hover {
+      background-color: #90caf9;
+    }
+    footer {
+      grid-column: span 2;
+      text-align: center;
+      padding: 2rem 0;
+      background-color: #121212;
+      color: #aaa;
+    }
+    .column {
       display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .about-grid > div {
-      flex: 1 1 300px;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease-out forwards;
-    }
-    .fade-in-delay-1 { animation-delay: 0.3s; }
-    .fade-in-delay-2 { animation-delay: 0.6s; }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: none;
-      }
+      flex-direction: column;
+      gap: 1rem;
     }
   </style>
 </head>
@@ -51,52 +93,75 @@
     <nav>
       <ul>
         <li><a href="#about">A propos</a></li>
+        <li><a href="#competences">Compétences</a></li>
         <li><a href="#projects">Projets</a></li>
-        <li><a href="#cv">CV</a></li>
+        <li><a href="#experience">Expérience</a></li>
+        <li><a href="#formation">Formation</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="about" class="fade-in">
-      <h2>Bienvenue</h2>
-      <div class="about-grid">
-        <div>
-          <p>Étudiant en informatique à l'IUT de Sophia Antipolis, passionné par le développement full-stack, les systèmes et les projets techniques.</p>
-          <p>Actuellement en BUT3, je suis à la recherche d'une alternance pour septembre 2025.</p>
-        </div>
-        <div>
-          <h3>Contact</h3>
-          <ul>
-            <li>Email : <a href="mailto:alexis.tyszka@outlook.fr">alexis.tyszka@outlook.fr</a></li>
-            <li>LinkedIn : <a href="https://www.linkedin.com/in/alexis-tyszka-b0273b2b7/">alexis-tyszka</a></li>
-            <li>Localisation : Callian, France</li>
-          </ul>
-        </div>
+    <section id="about">
+      <h2>A propos</h2>
+      <div class="column">
+        <p>Je suis un étudiant en BUT Informatique à Sophia Tech, passionné par le développement full-stack, la gestion de projets et l'optimisation système. J'apprécie les projets concrets et techniques. Disponible pour une alternance d'un an à partir de septembre 2025.</p>
       </div>
     </section>
 
-    <section id="projects" class="fade-in fade-in-delay-1">
+    <section id="competences">
+      <h2>Compétences techniques</h2>
+      <ul>
+        <li><strong>Langages :</strong> Java, Python, JavaScript, HTML/CSS, MySQL</li>
+        <li><strong>Frameworks :</strong> React, Node.js, Spring Boot</li>
+        <li><strong>Outils :</strong> Git, GitHub, Docker, OneShape, Pack Office</li>
+        <li><strong>Systèmes :</strong> Linux, Windows</li>
+        <li><strong>Autres :</strong> GitHub Pages, plateformes cloud</li>
+      </ul>
+    </section>
+
+    <section id="projects">
       <h2>Projets</h2>
-
       <div class="card">
-        <h3>Portail des projets étudiants</h3>
-        <p>Hub GitHub/Hackster.io centralisant les projets de l'IUT avec documentation, Docker et navigation claire.</p>
-        <a href="https://www.hackster.io/" class="button" target="_blank">Voir sur Hackster.io</a>
+        <h3>Portail des projets pour le BUT Info Nice</h3>
+        <p>Hub GitHub/Hackster.io regroupant tous les projets étudiants de l'IUT avec documentation et déploiement Docker.</p>
+        <a href="https://www.hackster.io/529623/saes-iut-info-580d38" class="button" target="_blank">Voir sur Hackster.io</a>
       </div>
-
       <div class="card">
         <h3>Potify</h3>
-        <p>Application Java Swing pour lire des musiques locales avec playlists personnalisables.</p>
+        <p>Lecteur de musique en Java Swing : interface personnalisée, playlist, gestion locale, utilisateur.</p>
         <a href="./Potify/" class="button">Voir le projet</a>
       </div>
     </section>
 
-    <section id="cv" class="fade-in fade-in-delay-2">
-      <h2>CV</h2>
-      <p>Téléchargez mon CV au format PDF :</p>
-      <a href="cv-alexis-tyszka.pdf" class="button" download>Télécharger</a>
+    <section id="experience">
+      <h2>Expérience professionnelle</h2>
+      <ul>
+        <li><strong>Été 2023 – Evitech :</strong> Script Python + amélioration intranet</li>
+        <li><strong>Février 2019 – CPCP Télécom :</strong> Pose de fibre optique à Nice</li>
+        <li><strong>2016-2018 – Usby Escalade :</strong> Bénévole événements et compétitions</li>
+      </ul>
+    </section>
+
+    <section id="formation">
+      <h2>Formation</h2>
+      <ul>
+        <li><strong>2022 – Aujourd'hui :</strong> BUT Informatique – IUT Sophia Antipolis</li>
+        <li><strong>2022 – 2024 :</strong> Cycle préparatoire intégré – Polytech Nice</li>
+        <li><strong>2019 – 2022 :</strong> Bac Général – Maths, NSI, Maths expertes – Mention Bien</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li><strong>Email :</strong> <a href="mailto:alexis.tyszka@outlook.fr">alexis.tyszka@outlook.fr</a></li>
+        <li><strong>Téléphone :</strong> 07.83.48.83.05</li>
+        <li><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/alexis-tyszka-b0273b2b7/">alexis-tyszka</a></li>
+        <li><strong>Localisation :</strong> Callian, France</li>
+        <li><strong>Permis :</strong> B - Véhicule personnel</li>
+      </ul>
     </section>
   </main>
 
