@@ -16,6 +16,7 @@
       font-family: 'Roboto Mono', monospace;
       background-color: #0e0e0e;
       color: #e0e0e0;
+      zoom: 1.25;
     }
     header {
       position: fixed;
@@ -59,6 +60,14 @@
       border-left: 4px solid var(--accent);
       border-radius: 8px;
       margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .card-content {
+      flex: 1;
+      padding-right: 1rem;
     }
     .button {
       display: inline-block;
@@ -68,8 +77,8 @@
       font-weight: bold;
       border-radius: 5px;
       text-decoration: none;
-      margin-top: 1rem;
       cursor: pointer;
+      white-space: nowrap;
     }
     .button:hover {
       background-color: #90caf9;
@@ -89,6 +98,7 @@
     .toggle-content {
       display: none;
       margin-top: 1rem;
+      width: 100%;
     }
     .toggle-content.active {
       display: block;
@@ -138,38 +148,48 @@
     <section id="projects">
       <h2>Projets</h2>
       <div class="card">
-        <h3>Portail des projets pour le BUT Info Nice</h3>
-        <p>Hub GitHub/Hackster.io regroupant tous les projets étudiants de l'IUT avec documentation et déploiement Docker.</p>
-        <a href="https://www.hackster.io/529623/saes-iut-info-580d38" class="button" target="_blank">Voir sur Hackster.io</a>
+        <div class="card-content">
+          <h3>Portail des projets pour le BUT Info Nice</h3>
+          <p>Hub GitHub/Hackster.io regroupant tous les projets étudiants de l'IUT avec documentation et déploiement Docker.</p>
+          <a href="https://www.hackster.io/529623/saes-iut-info-580d38" class="button" target="_blank">Voir sur Hackster.io</a>
+        </div>
       </div>
       <div class="card">
-        <h3>Potify</h3>
-        <p>Lecteur de musique en Java Swing : interface personnalisée, playlist, gestion locale, utilisateur.</p>
-        <a href="./Potify/" class="button">Voir le projet</a>
+        <div class="card-content">
+          <h3>Potify</h3>
+          <p>Lecteur de musique en Java Swing : interface personnalisée, playlist, gestion locale, utilisateur.</p>
+          <a href="./Potify/" class="button">Voir le projet</a>
+        </div>
       </div>
     </section>
 
     <section id="experience">
       <h2>Expérience professionnelle</h2>
       <div class="card">
-        <strong>Été 2023 – Evitech :</strong>
-        <p>Script Python + amélioration intranet</p>
+        <div class="card-content">
+          <strong>Été 2023 – Evitech :</strong>
+          <p>Script Python + amélioration intranet</p>
+        </div>
         <button class="button" onclick="toggleVisibility('exp-evitech')">Détails</button>
         <div id="exp-evitech" class="toggle-content">
           <p>Développement d’un script Python pour automatiser des tâches administratives internes. Refonte partielle de l’intranet avec un focus sur l’ergonomie et l’efficacité.</p>
         </div>
       </div>
       <div class="card">
-        <strong>Février 2019 – CPCP Télécom :</strong>
-        <p>Pose de fibre optique à Nice</p>
+        <div class="card-content">
+          <strong>Février 2019 – CPCP Télécom :</strong>
+          <p>Pose de fibre optique à Nice</p>
+        </div>
         <button class="button" onclick="toggleVisibility('exp-cpcp')">Détails</button>
         <div id="exp-cpcp" class="toggle-content">
           <p>Participation à la pose de fibre optique sur le terrain avec les techniciens. Découverte du métier et des infrastructures réseaux.</p>
         </div>
       </div>
       <div class="card">
-        <strong>2016-2018 – Usby Escalade :</strong>
-        <p>Bénévole événements et compétitions</p>
+        <div class="card-content">
+          <strong>2016-2018 – Usby Escalade :</strong>
+          <p>Bénévole événements et compétitions</p>
+        </div>
         <button class="button" onclick="toggleVisibility('exp-usby')">Détails</button>
         <div id="exp-usby" class="toggle-content">
           <p>Organisation d’événements sportifs, gestion des inscriptions et de l’accueil, soutien logistique pendant les compétitions locales.</p>
@@ -180,21 +200,27 @@
     <section id="formation">
       <h2>Formation</h2>
       <div class="card">
-        <strong>2022 – Aujourd'hui :</strong> BUT Informatique – IUT Sophia Antipolis
+        <div class="card-content">
+          <strong>2022 – Aujourd'hui :</strong> BUT Informatique – IUT Sophia Antipolis
+        </div>
         <button class="button" onclick="toggleVisibility('form-but')">Détails</button>
         <div id="form-but" class="toggle-content">
           <p>Formation polyvalente en développement, réseau, base de données, système, projet. Réalisations concrètes avec des SAE. Mémoire de fin d’étude en cours.</p>
         </div>
       </div>
       <div class="card">
-        <strong>2022 – 2024 :</strong> Cycle préparatoire intégré – Polytech Nice
+        <div class="card-content">
+          <strong>2022 – 2024 :</strong> Cycle préparatoire intégré – Polytech Nice
+        </div>
         <button class="button" onclick="toggleVisibility('form-polytech')">Détails</button>
         <div id="form-polytech" class="toggle-content">
           <p>Double cursus visant une poursuite en école d’ingénieur. Approfondissement scientifique et technique.</p>
         </div>
       </div>
       <div class="card">
-        <strong>2019 – 2022 :</strong> Bac Général – Maths, NSI, Maths expertes – Mention Bien
+        <div class="card-content">
+          <strong>2019 – 2022 :</strong> Bac Général – Maths, NSI, Maths expertes – Mention Bien
+        </div>
         <button class="button" onclick="toggleVisibility('form-bac')">Détails</button>
         <div id="form-bac" class="toggle-content">
           <p>Parcours scientifique orienté informatique. Projets NSI, développement d’outils d’analyse, simulation et algorithmes.</p>
