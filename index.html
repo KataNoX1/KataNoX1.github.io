@@ -151,25 +151,54 @@
 
     <section id="experience">
       <h2>Expérience professionnelle</h2>
-      <button class="button" onclick="toggleVisibility('experience-details')">Afficher / Masquer les détails</button>
-      <div id="experience-details" class="toggle-content">
-        <ul>
-          <li><strong>Été 2023 – Evitech :</strong> Script Python + amélioration intranet</li>
-          <li><strong>Février 2019 – CPCP Télécom :</strong> Pose de fibre optique à Nice</li>
-          <li><strong>2016-2018 – Usby Escalade :</strong> Bénévole événements et compétitions</li>
-        </ul>
+      <div class="card">
+        <strong>Été 2023 – Evitech :</strong>
+        <p>Script Python + amélioration intranet</p>
+        <button class="button" onclick="toggleVisibility('exp-evitech')">Détails</button>
+        <div id="exp-evitech" class="toggle-content">
+          <p>Développement d’un script Python pour automatiser des tâches administratives internes. Refonte partielle de l’intranet avec un focus sur l’ergonomie et l’efficacité.</p>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Février 2019 – CPCP Télécom :</strong>
+        <p>Pose de fibre optique à Nice</p>
+        <button class="button" onclick="toggleVisibility('exp-cpcp')">Détails</button>
+        <div id="exp-cpcp" class="toggle-content">
+          <p>Participation à la pose de fibre optique sur le terrain avec les techniciens. Découverte du métier et des infrastructures réseaux.</p>
+        </div>
+      </div>
+      <div class="card">
+        <strong>2016-2018 – Usby Escalade :</strong>
+        <p>Bénévole événements et compétitions</p>
+        <button class="button" onclick="toggleVisibility('exp-usby')">Détails</button>
+        <div id="exp-usby" class="toggle-content">
+          <p>Organisation d’événements sportifs, gestion des inscriptions et de l’accueil, soutien logistique pendant les compétitions locales.</p>
+        </div>
       </div>
     </section>
 
     <section id="formation">
       <h2>Formation</h2>
-      <button class="button" onclick="toggleVisibility('formation-details')">Afficher / Masquer les détails</button>
-      <div id="formation-details" class="toggle-content">
-        <ul>
-          <li><strong>2022 – Aujourd'hui :</strong> BUT Informatique – IUT Sophia Antipolis</li>
-          <li><strong>2022 – 2024 :</strong> Cycle préparatoire intégré – Polytech Nice</li>
-          <li><strong>2019 – 2022 :</strong> Bac Général – Maths, NSI, Maths expertes – Mention Bien</li>
-        </ul>
+      <div class="card">
+        <strong>2022 – Aujourd'hui :</strong> BUT Informatique – IUT Sophia Antipolis
+        <button class="button" onclick="toggleVisibility('form-but')">Détails</button>
+        <div id="form-but" class="toggle-content">
+          <p>Formation polyvalente en développement, réseau, base de données, système, projet. Réalisations concrètes avec des SAE. Mémoire de fin d’étude en cours.</p>
+        </div>
+      </div>
+      <div class="card">
+        <strong>2022 – 2024 :</strong> Cycle préparatoire intégré – Polytech Nice
+        <button class="button" onclick="toggleVisibility('form-polytech')">Détails</button>
+        <div id="form-polytech" class="toggle-content">
+          <p>Double cursus visant une poursuite en école d’ingénieur. Approfondissement scientifique et technique.</p>
+        </div>
+      </div>
+      <div class="card">
+        <strong>2019 – 2022 :</strong> Bac Général – Maths, NSI, Maths expertes – Mention Bien
+        <button class="button" onclick="toggleVisibility('form-bac')">Détails</button>
+        <div id="form-bac" class="toggle-content">
+          <p>Parcours scientifique orienté informatique. Projets NSI, développement d’outils d’analyse, simulation et algorithmes.</p>
+        </div>
       </div>
     </section>
 
