@@ -181,17 +181,15 @@
   </main>
 
   <script>
-    // fermer la modal en cliquant en dehors
-    document.addEventListener('click', event => {
-      document.querySelectorAll('dialog').forEach(dialog => {
-        if (!dialog.open) return;
-        const rect = dialog.getBoundingClientRect();
-        if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) {
-          dialog.close();
-        }
-      });
+  // fermer la modal en cliquant sur le backdrop uniquement
+  document.querySelectorAll('dialog').forEach(dialog => {
+    dialog.addEventListener('click', event => {
+      if (event.target === dialog) {
+        dialog.close();
+      }
     });
-  </script>
+  });
+</script>
 
   <footer>
     <p>&copy; 2025 Alexis Tyszka</p>
