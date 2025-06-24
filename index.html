@@ -14,50 +14,26 @@
       color: var(--fg);
       scroll-behavior: smooth;
     }
-    header {
-      position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
-      background-color: var(--bg); display: flex;
-      justify-content: space-between; align-items: center; z-index: 1000;
-      border-bottom: 1px solid #222;
-    }
+    header { position: fixed; top: 0; width: 100%; padding: 1rem 2rem; background-color: var(--bg); display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid #222; }
     header h1 { color: var(--accent); }
     nav ul { list-style: none; display: flex; gap: 1.5rem; }
-    nav a {
-      color: var(--accent); text-decoration: none; font-weight: bold;
-    }
+    nav a { color: var(--accent); text-decoration: none; font-weight: bold; }
     nav a:hover { color: #90caf9; }
-    main {
-      padding-top: 100px; padding-inline: 5vw;
-      display: block;
-    }
+    main { padding-top: 100px; padding-inline: 5vw; display: block; }
     section { margin-bottom: 3rem; }
     h2 { margin-bottom: 1rem; color: var(--accent); }
     /* Projects grid */
-    #projects .card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-    /* Cards */
-    .card {
-      background: var(--card); padding: 1rem;
-      border-left: 4px solid var(--accent); border-radius: 6px;
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
+    #projects .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .card { background: var(--card); padding: 1rem; border-left: 4px solid var(--accent); border-radius: 6px; display: flex; flex-direction: column; justify-content: space-between; }
     .card-content { margin-bottom: 1rem; }
-    .button {
-      align-self: flex-end;
-      padding: 0.5rem 1rem; background: var(--accent);
-      color: #000; text-decoration: none; font-weight: bold;
-      border-radius: 4px;
-    }
+    .button { align-self: flex-end; padding: 0.5rem 1rem; background: var(--accent); color: #000; text-decoration: none; font-weight: bold; border-radius: 4px; cursor: pointer; }
     .button:hover { background: #90caf9; }
-    /* Other lists */
     ul li { margin-bottom: 0.5rem; }
-    footer {
-      text-align: center; padding: 2rem 0;
-      background: #121212; color: #aaa;
-    }
+    footer { text-align: center; padding: 2rem 0; background: #121212; color: #aaa; }
+    /* Modal styling */
+    dialog { background: var(--card); border: none; border-radius: 6px; padding: 1rem 1.5rem; width: 80%; max-width: 500px; color: var(--fg); }
+    dialog::backdrop { background: rgba(0,0,0,0.5); }
+    .close-btn { margin-top: 1rem; display: block; align-self: flex-end; }
   </style>
 </head>
 <body>
@@ -78,7 +54,7 @@
   <main>
     <section id="about">
       <h2>À propos</h2>
-      <p>Étudiant en BUT Informatique à Sophia Tech, passionné par le développement full-stack, la gestion de projets et l'optimisation système. Disponible pour une alternance à partir de septembre 2025.</p>
+      <p>Étudiant en BUT Informatique à Sophia Tech, passionné par le développement full-stack, la gestion de projets et l'optimisation système. Disponible pour une alternance à partir de septembre 2025.</p>
     </section>
 
     <section id="competences">
@@ -125,23 +101,79 @@
 
     <section id="experience">
       <h2>Expérience professionnelle</h2>
-      <p>Été 2023 – Evitech : projet Python Jaguar + amélioration intranet reST/Sphinx.</p>
-      <p>Fév 2019 – CPCP Télécom : stage pose de fibre optique à Nice.</p>
-      <p>2016-2018 – Usby Escalade : aide à l’organisation et montage de voies.</p>
+      <ul>
+        <li>
+          Été 2023 – Evitech
+          <button class="button" onclick="document.getElementById('modal-evitech').showModal()">Détails</button>
+        </li>
+        <li>
+          Fév 2019 – CPCP Télécom
+          <button class="button" onclick="document.getElementById('modal-cpcp').showModal()">Détails</button>
+        </li>
+        <li>
+          2016-2018 – Usby Escalade
+          <button class="button" onclick="document.getElementById('modal-usby').showModal()">Détails</button>
+        </li>
+      </ul>
     </section>
+
+    <!-- Modals expérience -->
+    <dialog id="modal-evitech">
+      <h3>Evitech</h3>
+      <p>Stage d'un mois : formation sur Jaguar, script Python pour réception et traitement vidéo, intégration Jaguar via OS, collaboration avec devs, amélioration intranet reST/Sphinx avec tags.</p>
+      <button class="button close-btn" onclick="document.getElementById('modal-evitech').close()">Fermer</button>
+    </dialog>
+    <dialog id="modal-cpcp">
+      <h3>CPCP Télécom</h3>
+      <p>Stage d'observation d'une semaine : pose de fibre optique à Nice, initiation aux techniques de raccordement et de soudure, découverte du terrain.</p>
+      <button class="button close-btn" onclick="document.getElementById('modal-cpcp').close()">Fermer</button>
+    </dialog>
+    <dialog id="modal-usby">
+      <h3>Usby Escalade</h3>
+      <p>Bénévolat 2016-2018 : aide à l'organisation de compétitions, montage de voies d'escalade, participation logistique et support aux événements du club.</p>
+      <button class="button close-btn" onclick="document.getElementById('modal-usby').close()">Fermer</button>
+    </dialog>
 
     <section id="formation">
       <h2>Formation</h2>
-      <p>2022-2024 – PEIP Polytech Nice : cycle prépa généraliste, réorientation vers l’informatique.</p>
-      <p>Depuis 2022 – BUT Informatique, IUT Sophia Antipolis– projets concrets et pratiques.</p>
-      <p>2019-2022 – Bac Général (Maths/NSI), Mention Bien.</p>
+      <ul>
+        <li>
+          2022-2024 – PEIP Polytech Nice
+          <button class="button" onclick="document.getElementById('modal-peip').showModal()">Détails</button>
+        </li>
+        <li>
+          Depuis 2022 – BUT Informatique, IUT Sophia Antipolis
+          <button class="button" onclick="document.getElementById('modal-but').showModal()">Détails</button>
+        </li>
+        <li>
+          2019-2022 – Bac Général (Maths/NSI), Mention Bien
+          <button class="button" onclick="document.getElementById('modal-bac').showModal()">Détails</button>
+        </li>
+      </ul>
     </section>
+
+    <!-- Modals formation -->
+    <dialog id="modal-peip">
+      <h3>PEIP Polytech Nice</h3>
+      <p>Cycle préparatoire intégré 2022-2024 : formation généraliste (maths, physique, chimie, info), projets en groupe, réorientation vers un cursus pratique et informatique.</p>
+      <button class="button close-btn" onclick="document.getElementById('modal-peip').close()">Fermer</button>
+    </dialog>
+    <dialog id="modal-but">
+      <h3>BUT Informatique</h3>
+      <p>Depuis 2022 : pédagogie par projets (SAÉ), développement d'applications, gestion de bases de données, travail en équipe et en conditions industrielles.</p>
+      <button class="button close-btn" onclick="document.getElementById('modal-but').close()">Fermer</button>
+    </dialog>
+    <dialog id="modal-bac">
+      <h3>Bac Général</h3>
+      <p>2019-2022 : spécialités NSI et maths expertes, mention Bien, fondations solides en algorithmique et réflexion scientifique.</p>
+      <button class="button close-btn" onclick="document.getElementById('modal-bac').close()">Fermer</button>
+    </dialog>
 
     <section id="contact">
       <h2>Contact</h2>
       <ul>
         <li><strong>Email :</strong> <a href="mailto:alexis.tyszka@outlook.fr">alexis.tyszka@outlook.fr</a></li>
-        <li><strong>Tél :</strong> 07 83 48 83 05</li>
+        <li><strong>Tél :</strong> 07 83 48 83 05</li>
         <li><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/alexis-tyszka-b0273b2b7/">alexis-tyszka</a></li>
         <li><strong>Localisation :</strong> Callian, France</li>
       </ul>
