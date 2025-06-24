@@ -7,13 +7,7 @@
   <style>
     :root { --accent: #64b5f6; --bg: #0e0e0e; --fg: #e0e0e0; --card: #1e1e1e; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      zoom: 1.25;
-      font-family: 'Roboto Mono', monospace;
-      background-color: var(--bg);
-      color: var(--fg);
-      scroll-behavior: smooth;
-    }
+    body { zoom: 1.25; font-family: 'Roboto Mono', monospace; background-color: var(--bg); color: var(--fg); scroll-behavior: smooth; }
     header { position: fixed; top: 0; width: 100%; padding: 1rem 2rem; background-color: var(--bg); display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid #222; }
     header h1 { color: var(--accent); }
     nav ul { list-style: none; display: flex; gap: 1.5rem; }
@@ -22,7 +16,6 @@
     main { padding-top: 100px; padding-inline: 5vw; }
     section { margin-bottom: 3rem; }
     h2 { margin-bottom: 1rem; color: var(--accent); }
-    /* Projects grid only */
     #projects .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .card { background: var(--card); padding: 1rem; border-left: 4px solid var(--accent); border-radius: 6px; display: flex; flex-direction: column; justify-content: space-between; }
     .card-content { margin-bottom: 1rem; }
@@ -30,9 +23,9 @@
     .button:hover { background: #90caf9; }
     ul li { margin-bottom: 0.5rem; }
     footer { text-align: center; padding: 2rem 0; background: #121212; color: #aaa; }
-    /* Modal styling */
     dialog { margin: auto; margin-top: 5vh; background: var(--card); border: none; border-radius: 6px; padding: 1rem 1.5rem; width: 90%; max-width: 700px; color: var(--fg); }
     dialog::backdrop { background: rgba(0,0,0,0.8); }
+    dialog h3 { margin-bottom: 1rem; }
     .close-btn { margin-top: 1rem; align-self: flex-end; }
   </style>
 </head>
@@ -52,9 +45,12 @@
   </header>
 
   <main>
-    <section id="about">
-      <h2>À propos</h2>
-      <p>Étudiant en BUT Informatique à Sophia Tech, passionné par le développement full-stack, la gestion de projets et l'optimisation système.<br/><br/>Disponible pour une alternance à partir de septembre 2025.</p>
+    <section id="about" style="display: flex; align-items: center; gap: 2rem;">
+      <img src="image.jpg" alt="Photo d'Alexis Tyszka" style="width:150px; height:auto; border-radius: 8px;" />
+      <div>
+        <h2>À propos</h2>
+        <p>Étudiant en BUT Informatique à Sophia Tech, passionné par le développement full-stack, la gestion de projets et l'optimisation système.<br/><br/>Disponible pour une alternance à partir de septembre 2025.</p>
+      </div>
     </section>
 
     <section id="competences">
@@ -71,123 +67,151 @@
     <section id="projects">
       <h2>Projets</h2>
       <div class="card-grid">
+        <!-- Projet 1 -->
         <div class="card">
           <div class="card-content">
             <h3>Portail des projets IUT</h3>
             <p>Hub GitHub/Hackster.io avec documentation et Docker pour centraliser les projets étudiants.<br/><br/></p>
           </div>
-          <a href="https://www.hackster.io/529623/saes-iut-info-580d38" class="button" target="_blank">Hackster.io</a>
+          <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+            <a href="https://www.hackster.io/529623/saes-iut-info-580d38" class="button" target="_blank">Hackster.io</a>
+            <button class="button" onclick="document.getElementById('modal-portail').showModal()">Détails</button>
+          </div>
         </div>
+        <!-- Projet 2 -->
         <div class="card">
           <div class="card-content">
             <h3>Potify</h3>
             <p>App Android Studio pour lire de la musique locale, créer des playlists et gérer les utilisateurs.<br/><br/></p>
           </div>
+          <button class="button" onclick="document.getElementById('modal-potify').showModal()">Détails</button>
         </div>
+        <!-- Projet 3 -->
         <div class="card">
           <div class="card-content">
             <h3>Jeu du Pendu</h3>
             <p>HTML/CSS/JS avec système de comptes et enregistrement de scores.<br/><br/></p>
           </div>
+          <button class="button" onclick="document.getElementById('modal-pendu').showModal()">Détails</button>
         </div>
+        <!-- Projet 4 -->
         <div class="card">
           <div class="card-content">
             <h3>Pipeline de données</h3>
-            <p>Automatisation de collecte, filtrage et insertion en base, avec suivi de l’exécution.<br/><br/></p>
+            <p>Automatisation de collecte, filtrage et insertion en base, avec suivi d’exécution en temps réel.<br/><br/></p>
           </div>
+          <button class="button" onclick="document.getElementById('modal-pipeline').showModal()">Détails</button>
         </div>
       </div>
     </section>
 
+    <!-- Modals projets enrichis -->
+    <dialog id="modal-portail">
+      <h3>Portail des projets IUT</h3>
+      <p>Ce portail centralise les dépôts GitHub et les pages Hackster.io pour chaque SAÉ de l'IUT.</p><br/>
+      <p>Un pipeline CI/CD est configuré via GitHub Actions pour automatiser les tests unitaires et le déploiement Docker.</p><br/>
+      <p>La structure front-end utilise React et Redux, interrogeant une API RESTful sécurisée par JWT.</p><br/>
+      <p>Les métadonnées sont indexées dans ElasticSearch, offrant une recherche full-text et des filtres par tags.</p><br/>
+      <p>Un monitoring Grafana se connecte à Prometheus pour suivre la santé des conteneurs et générer des alertes.</p><br/>
+      <button class="button close-btn" onclick="document.getElementById('modal-portail').close()">Fermer</button>
+    </dialog>
+
+    <dialog id="modal-potify">
+      <h3>Potify</h3>
+      <p>Développée en Java dans Android Studio, Potify adopte l’architecture MVVM pour modulariser le code.</p><br/>
+      <p>La base Room assure une gestion robuste des données locales, tandis que Coroutine gère les appels asynchrones.</p><br/>
+      <p>WorkManager orchestre les tâches de téléchargement et de mise en cache des pistes audio.</p><br/>
+      <p>L’UI repose sur RecyclerView et Material Design Components pour une expérience utilisateur fluide.</p><br/>
+      <button class="button close-btn" onclick="document.getElementById('modal-potify').close()">Fermer</button>
+    </dialog>
+
+    <dialog id="modal-pendu">
+      <h3>Jeu du Pendu</h3>
+      <p>Cette application web utilise HTML5 Canvas pour dessiner le pendu et gérer les animations.</p><br/>
+      <p>Le backend en Node.js/Express déploie une API sécurisée par JSON Web Tokens pour l’authentification.</p><br/>
+      <p>Les données utilisateurs et scores sont stockées dans MongoDB Atlas, avec Mongoose pour schéma et validation.</p><br/>
+      <p>Le front-end Vanilla JS utilise fetch pour communiquer en AJAX et mettre à jour l’interface en temps réel.</p><br/>
+      <button class="button close-btn" onclick="document.getElementById('modal-pendu').close()">Fermer</button>
+    </dialog>
+
+    <dialog id="modal-pipeline">
+      <h3>Pipeline de données</h3>
+      <p>Orchestration Apache Airflow avec DAGs planifiés pour ingérer des données depuis divers endpoints REST.</p><br/>
+      <p>Les tâches Python exploitent Pandas et NumPy pour transformer et nettoyer les flux bruts.</p><br/>
+      <p>Les résultats sont poussés dans PostgreSQL, optimisés par partitionnement et index GIN pour requêtes analytiques.</p><br/>
+      <p>La supervision des exécutions se fait via Grafana, remontant les métriques Prometheus pour alertes SLA.</p><br/>
+      <button class="button close-btn" onclick="document.getElementById('modal-pipeline').close()">Fermer</button>
+    </dialog>
+
     <section id="experience">
       <h2>Expérience professionnelle</h2>
       <ul>
-        <li>
-          Été 2023 – Evitech
-          <button class="button" onclick="document.getElementById('modal-evitech').showModal()">Détails</button>
-        </li>
-        <li>
-          Fév 2019 – CPCP Télécom
-          <button class="button" onclick="document.getElementById('modal-cpcp').showModal()">Détails</button>
-        </li>
-        <li>
-          2016-2018 – Usby Escalade
-          <button class="button" onclick="document.getElementById('modal-usby').showModal()">Détails</button>
-        </li>
+        <li>Été 2023 – Evitech <button class="button" onclick="document.getElementById('modal-evitech').showModal()">Détails</button></li>
+        <li>Fév 2019 – CPCP Télécom <button class="button" onclick="document.getElementById('modal-cpcp').showModal()">Détails</button></li>
+        <li>2016-2018 – Usby Escalade <button class="button" onclick="document.getElementById('modal-usby').showModal()">Détails</button></li>
       </ul>
     </section>
 
-    <!-- Modals expérience -->
     <dialog id="modal-evitech">
-      <h3>Evitech</h3><br/>
-      <p>Evitech est une entreprise spécialisée dans les solutions de sécurité vidéo intelligentes.<br/><br/></p>
-      <p>J’ai effectué un stage d’un mois au sein d’Evitech, débutant par une formation d’une semaine sur l’outil Jaguar, leur logiciel d’analyse vidéo.<br/><br/></p>
-      <p>Ensuite, j’ai développé en Python un script utilisant la bibliothèque <code>os</code> pour surveiller l’arrivée complète de vidéos, les déplacer puis lancer Jaguar.<br/><br/></p>
-      <p>La documentation en ligne manquait, j’ai donc contacté les développeurs pour résoudre les blocages techniques.<br/><br/></p>
-      <p>J’ai terminé le projet en modifiant une page de leur intranet (reStructuredText et Sphinx) pour y ajouter un système de tags, améliorant la recherche des vidéos d’exemple.<br/><br/></p>
+      <h3>Evitech</h3>
+      <p>Evitech développe Jaguar, un moteur d’analyse vidéo basé sur l’IA pour la sécurité industrielle.</p><br/>
+      <p>En une semaine, j’ai appris à configurer Jaguar, puis ai automatisé le traitement vidéo en Python, manipulant os, subprocess et logs.</p><br/>
+      <p>Face à l'absence de documentation, j’ai intégré l’équipe via GitLab, créé des issues et proposé des correctifs sur le SDK interne.</p><br/>
+      <p>J’ai ensuite étendu l’intranet avec Sphinx et reStructuredText, implémentant un système de filtres par tag pour améliorer la maintenance des assets.</p><br/>
+      <p>Cette expérience m’a plongé dans un cycle Agile/Scrum, avec daily stand-ups et code reviews, renforçant ma rigueur de devOps.</p><br/>
       <button class="button close-btn" onclick="document.getElementById('modal-evitech').close()">Fermer</button>
     </dialog>
 
     <dialog id="modal-cpcp">
-      <h3>CPCP Télécom</h3><br/>
-      <p>CPCP Télécom est spécialisée dans l’installation de réseaux de télécommunications.<br/><br/></p>
-      <p>J’ai réalisé un stage d’observation d’une semaine où j’ai accompagné les techniciens lors de la pose de fibre optique à Nice.<br/><br/></p>
-      <p>J’ai découvert le repérage des points de passage, la manipulation des câbles, les soudures et les vérifications techniques.<br/><br/></p>
-      <p>Cette première immersion m’a donné un aperçu concret du monde professionnel et m’a orienté vers l’informatique et les réseaux.<br/><br/></p>
+      <h3>CPCP Télécom</h3>
+      <p>CPCP Telecom installe des liaisons FTTH haute performance en milieu urbain.</p><br/>
+      <p>Lors de mon stage, j'ai appris à utiliser l'OTDR pour tester la qualité de la fibre, à fusionner les fibres et à documenter les mesures.</p><br/>
+      <p>J’ai assisté au déploiement sur le terrain, coordonnant les splices et veillant au respect des normes ITU-T.</p><br/>
+      <p>Cette immersion m’a permis d’appréhender les contraintes de l’ingénierie réseau et la précision nécessaire pour garantir un débit optimal.</p><br/>
       <button class="button close-btn" onclick="document.getElementById('modal-cpcp').close()">Fermer</button>
     </dialog>
 
     <dialog id="modal-usby">
-      <h3>Usby Escalade</h3><br/>
-      <p>Usby Escalade est un club où j’ai pratiqué l’escalade pendant cinq ans.<br/><br/></p>
-      <p>Mon père étant vice-président, j’ai aidé à organiser les compétitions et événements du club.<br/><br/></p>
-      <p>J’ai également monté des voies en posant les prises, découvrant l’aspect logistique et créatif de cette activité.<br/><br/></p>
-      <p>Cette expérience associative m’a appris la rigueur, le sens de l’écoute et le travail d’équipe.<br/><br/></p>
+      <h3>Usby Escalade</h3>
+      <p>Usby Escalade est un club accueillant compétiteurs et amateurs, géré par une équipe bénévole.</p><br/>
+      <p>J’ai participé à la conception de voies, choisissant l’orientation et la difficulté, en manipulant les prises via des clés dynamométriques.</p><br/>
+      <p>En logistique, j’ai planifié les événements, géré le matériel et assuré la sécurité aux normes FFME.</p><br/>
+      <p>Cette expérience associative m’a inculqué l’importance du travail d’équipe et de la gestion de projet non-profit.</p><br/>
       <button class="button close-btn" onclick="document.getElementById('modal-usby').close()">Fermer</button>
     </dialog>
 
     <section id="formation">
       <h2>Formation</h2>
       <ul>
-        <li>
-          2022-2024 – PEIP Polytech Nice
-          <button class="button" onclick="document.getElementById('modal-peip').showModal()">Détails</button>
-        </li>
-        <li>
-          Depuis 2022 – BUT Informatique, IUT Sophia Antipolis
-          <button class="button" onclick="document.getElementById('modal-but').showModal()">Détails</button>
-        </li>
-        <li>
-          2019-2022 – Bac Général (Maths/NSI), Mention Bien
-          <button class="button" onclick="document.getElementById('modal-bac').showModal()">Détails</button>
-        </li>
+        <li>2022-2024 – PEIP Polytech Nice <button class="button" onclick="document.getElementById('modal-peip').showModal()">Détails</button></li>
+        <li>Depuis 2022 – BUT Informatique, IUT Sophia Antipolis <button class="button" onclick="document.getElementById('modal-but').showModal()">Détails</button></li>
+        <li>2019-2022 – Bac Général (Maths/NSI), Mention Bien <button class="button" onclick="document.getElementById('modal-bac').showModal()">Détails</button></li>
       </ul>
     </section>
 
-    <!-- Modals formation -->
     <dialog id="modal-peip">
-      <h3>PEIP Polytech Nice</h3><br/>
-      <p>Le cycle préparatoire intégré PEIP de Polytech est un cursus de deux ans préparant aux écoles d’ingénieurs du réseau.<br/><br/></p>
-      <p>J’y ai suivi des cours de mathématiques, physique, chimie et informatique, et travaillé sur des projets en groupe.<br/><br/></p>
-      <p>Cependant, la partie physique et certaines mathématiques abstraites ne correspondaient pas à mon intérêt, me poussant vers une formation plus pratique.<br/><br/></p>
-      <p>Malgré tout, cette période m’a apporté rigueur et méthode scientifique.<br/><br/></p>
+      <h3>PEIP Polytech Nice</h3>
+      <p>Le PEIP propose un tronc commun scientifique (MC & TP, physique, chimie) et des modules d’initiation à l’informatique.</p><br/>
+      <p>J’ai travaillé sur des projets de simulation numérique en MATLAB, des TP d’électrotechnique et un projet de conception assistée par ordinateur (SolidWorks).</p><br/>
+      <p>La diversité des matières m’a offert une vision globale, même si j’ai préféré me concentrer ensuite sur l’informatique pure.</p><br/>
+      <p>Les méthodes pédagogiques en apprentissage par projet m’ont préparé à la collaboration interdisciplinaire.</p><br/>
       <button class="button close-btn" onclick="document.getElementById('modal-peip').close()">Fermer</button>
     </dialog>
 
     <dialog id="modal-but">
-      <h3>BUT Informatique</h3><br/>
-      <p>Le BUT Informatique de l’IUT Sophia Antipolis est une formation professionnalisante de trois ans axée sur les projets.<br/><br/></p>
-      <p>Chaque semestre, j’ai réalisé des SAÉ : développement web, bases de données, scripts d’automatisation et applications mobiles.<br/><br/></p>
-      <p>Ces projets m’ont permis de consolider mes compétences techniques et de développer mon sens du travail en équipe.<br/><br/></p>
-      <p>La pédagogie par projet et le lien avec le monde professionnel font de ce cursus un choix idéal pour ma carrière.<br/><br/></p>
+      <h3>BUT Informatique</h3>
+      <p>Le BUT combine cours théoriques (algorithmique, réseaux) et SAÉ pratiques (web, mobile, bases).</p><br/>
+      <p>J’ai mené des développements en JavaScript/Node.js, des scripts Python d’automatisation Docker, et des déploiements AWS en stage.</p><br/>
+      <p>La formation utilise GitLab CI pour la gestion de version et l’intégration continue, simulant un workflow professionnel.</p><br/>
+      <p>Les SAÉ m’ont permis d’acquérir autonomie, gestion du temps et bonnes pratiques de documentation (reStructuredText, Markdown).</p><br/>
       <button class="button close-btn" onclick="document.getElementById('modal-but').close()">Fermer</button>
     </dialog>
 
     <dialog id="modal-bac">
-      <h3>Bac Général</h3><br/>
-      <p>J’ai obtenu un Bac Général en 2022 avec les spécialités NSI et Mathématiques expertes, mention Bien.<br/><br/></p>
-      <p>Cette formation m’a apporté des bases solides en algorithmique, programmation et raisonnement scientifique.<br/><br/></p>
-      <p>Elle m’a également préparé au rythme d’études supérieures et à l’autonomie nécessaire pour réussir.<br/><br/></p>
+      <h3>Bac Général</h3>
+      <p>Spécialités NSI et Mathématiques expertes : algorithmique, complexité, études de fonctions.</p><br/>
+      <p>J’ai rédigé un projet de type mini-rapport sur l’optimisation d’algorithmes de tri en Python.</p><br/>
+      <p>Cette base scientifique m’a donné rigueur et esprit analytique indispensables en informatique.</p><br/>
       <button class="button close-btn" onclick="document.getElementById('modal-bac').close()">Fermer</button>
     </dialog>
 
@@ -195,21 +219,15 @@
       <h2>Contact</h2>
       <ul>
         <li><strong>Email :</strong> <a href="mailto:alexis.tyszka@outlook.fr">alexis.tyszka@outlook.fr</a></li>
-        <li><strong>Tél :</strong> 07 83 48 83 05</li>
+        <li><strong>Tél :</strong> 07 83 48 83 05</li>
         <li><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/alexis-tyszka-b0273b2b7/">alexis-tyszka</a></li>
         <li><strong>Localisation :</strong> Callian, France</li>
       </ul>
     </section>
   </main>
-
   <script>
-    document.querySelectorAll('dialog').forEach(dialog => {
-      dialog.addEventListener('click', event => {
-        if (event.target === dialog) dialog.close();
-      });
-    });
+    document.querySelectorAll('dialog').forEach(dialog => { dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); }); });
   </script>
-
   <footer>
     <p>&copy; 2025 Alexis Tyszka</p>
   </footer>
