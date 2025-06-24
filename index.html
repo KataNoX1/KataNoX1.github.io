@@ -19,10 +19,10 @@
     nav ul { list-style: none; display: flex; gap: 1.5rem; }
     nav a { color: var(--accent); text-decoration: none; font-weight: bold; }
     nav a:hover { color: #90caf9; }
-    main { padding-top: 100px; padding-inline: 5vw; display: block; }
+    main { padding-top: 100px; padding-inline: 5vw; }
     section { margin-bottom: 3rem; }
     h2 { margin-bottom: 1rem; color: var(--accent); }
-    /* Projects grid */
+    /* Projects grid only */
     #projects .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .card { background: var(--card); padding: 1rem; border-left: 4px solid var(--accent); border-radius: 6px; display: flex; flex-direction: column; justify-content: space-between; }
     .card-content { margin-bottom: 1rem; }
@@ -31,9 +31,9 @@
     ul li { margin-bottom: 0.5rem; }
     footer { text-align: center; padding: 2rem 0; background: #121212; color: #aaa; }
     /* Modal styling */
-    dialog { margin: auto; margin-top: 10vh; background: var(--card); border: none; border-radius: 6px; padding: 1rem 1.5rem; width: 80%; max-width: 500px; color: var(--fg); }(--card); border: none; border-radius: 6px; padding: 1rem 1.5rem; width: 80%; max-width: 500px; color: var(--fg); }
-    dialog::backdrop { background: rgba(0,0,0,0.5); }
-    .close-btn { margin-top: 1rem; display: block; align-self: flex-end; }
+    dialog { margin: auto; margin-top: 5vh; background: var(--card); border: none; border-radius: 6px; padding: 1rem 1.5rem; width: 90%; max-width: 700px; color: var(--fg); }
+    dialog::backdrop { background: rgba(0,0,0,0.8); }
+    .close-btn { margin-top: 1rem; align-self: flex-end; }
   </style>
 </head>
 <body>
@@ -54,7 +54,7 @@
   <main>
     <section id="about">
       <h2>À propos</h2>
-      <p>Étudiant en BUT Informatique à Sophia Tech, passionné par le développement full-stack, la gestion de projets et l'optimisation système. Disponible pour une alternance à partir de septembre 2025.</p>
+      <p>Étudiant en BUT Informatique à Sophia Tech, passionné par le développement full-stack, la gestion de projets et l'optimisation système.<br/><br/>Disponible pour une alternance à partir de septembre 2025.</p>
     </section>
 
     <section id="competences">
@@ -74,26 +74,26 @@
         <div class="card">
           <div class="card-content">
             <h3>Portail des projets IUT</h3>
-            <p>Hub GitHub/Hackster.io avec documentation et Docker pour centraliser les projets étudiants.</p>
+            <p>Hub GitHub/Hackster.io avec documentation et Docker pour centraliser les projets étudiants.<br/><br/></p>
           </div>
           <a href="https://www.hackster.io/529623/saes-iut-info-580d38" class="button" target="_blank">Hackster.io</a>
         </div>
         <div class="card">
           <div class="card-content">
             <h3>Potify</h3>
-            <p>App Android Studio pour lire de la musique locale, créer des playlists et gérer les utilisateurs.</p>
+            <p>App Android Studio pour lire de la musique locale, créer des playlists et gérer les utilisateurs.<br/><br/></p>
           </div>
         </div>
         <div class="card">
           <div class="card-content">
             <h3>Jeu du Pendu</h3>
-            <p>HTML/CSS/JS avec système de comptes et enregistrement de scores.</p>
+            <p>HTML/CSS/JS avec système de comptes et enregistrement de scores.<br/><br/></p>
           </div>
         </div>
         <div class="card">
           <div class="card-content">
             <h3>Pipeline de données</h3>
-            <p>Automatisation de collecte, filtrage et insertion en base, avec suivi de l’exécution.</p>
+            <p>Automatisation de collecte, filtrage et insertion en base, avec suivi de l’exécution.<br/><br/></p>
           </div>
         </div>
       </div>
@@ -103,11 +103,11 @@
       <h2>Expérience professionnelle</h2>
       <ul>
         <li>
-          Été 2023 – Evitech
+          Été 2023 – Evitech
           <button class="button" onclick="document.getElementById('modal-evitech').showModal()">Détails</button>
         </li>
         <li>
-          Fév 2019 – CPCP Télécom
+          Fév 2019 – CPCP Télécom
           <button class="button" onclick="document.getElementById('modal-cpcp').showModal()">Détails</button>
         </li>
         <li>
@@ -119,18 +119,30 @@
 
     <!-- Modals expérience -->
     <dialog id="modal-evitech">
-      <h3>Evitech</h3>
-      <p>Stage d'un mois : formation sur Jaguar, script Python pour réception et traitement vidéo, intégration Jaguar via OS, collaboration avec devs, amélioration intranet reST/Sphinx avec tags.</p>
+      <h3>Evitech</h3><br/>
+      <p>Evitech est une entreprise spécialisée dans les solutions de sécurité vidéo intelligentes.<br/><br/></p>
+      <p>J’ai effectué un stage d’un mois au sein d’Evitech, débutant par une formation d’une semaine sur l’outil Jaguar, leur logiciel d’analyse vidéo.<br/><br/></p>
+      <p>Ensuite, j’ai développé en Python un script utilisant la bibliothèque <code>os</code> pour surveiller l’arrivée complète de vidéos, les déplacer puis lancer Jaguar.<br/><br/></p>
+      <p>La documentation en ligne manquait, j’ai donc contacté les développeurs pour résoudre les blocages techniques.<br/><br/></p>
+      <p>J’ai terminé le projet en modifiant une page de leur intranet (reStructuredText et Sphinx) pour y ajouter un système de tags, améliorant la recherche des vidéos d’exemple.<br/><br/></p>
       <button class="button close-btn" onclick="document.getElementById('modal-evitech').close()">Fermer</button>
     </dialog>
+
     <dialog id="modal-cpcp">
-      <h3>CPCP Télécom</h3>
-      <p>Stage d'observation d'une semaine : pose de fibre optique à Nice, initiation aux techniques de raccordement et de soudure, découverte du terrain.</p>
+      <h3>CPCP Télécom</h3><br/>
+      <p>CPCP Télécom est spécialisée dans l’installation de réseaux de télécommunications.<br/><br/></p>
+      <p>J’ai réalisé un stage d’observation d’une semaine où j’ai accompagné les techniciens lors de la pose de fibre optique à Nice.<br/><br/></p>
+      <p>J’ai découvert le repérage des points de passage, la manipulation des câbles, les soudures et les vérifications techniques.<br/><br/></p>
+      <p>Cette première immersion m’a donné un aperçu concret du monde professionnel et m’a orienté vers l’informatique et les réseaux.<br/><br/></p>
       <button class="button close-btn" onclick="document.getElementById('modal-cpcp').close()">Fermer</button>
     </dialog>
+
     <dialog id="modal-usby">
-      <h3>Usby Escalade</h3>
-      <p>Bénévolat 2016-2018 : aide à l'organisation de compétitions, montage de voies d'escalade, participation logistique et support aux événements du club.</p>
+      <h3>Usby Escalade</h3><br/>
+      <p>Usby Escalade est un club où j’ai pratiqué l’escalade pendant cinq ans.<br/><br/></p>
+      <p>Mon père étant vice-président, j’ai aidé à organiser les compétitions et événements du club.<br/><br/></p>
+      <p>J’ai également monté des voies en posant les prises, découvrant l’aspect logistique et créatif de cette activité.<br/><br/></p>
+      <p>Cette expérience associative m’a appris la rigueur, le sens de l’écoute et le travail d’équipe.<br/><br/></p>
       <button class="button close-btn" onclick="document.getElementById('modal-usby').close()">Fermer</button>
     </dialog>
 
@@ -142,11 +154,11 @@
           <button class="button" onclick="document.getElementById('modal-peip').showModal()">Détails</button>
         </li>
         <li>
-          Depuis 2022 – BUT Informatique, IUT Sophia Antipolis
+          Depuis 2022 – BUT Informatique, IUT Sophia Antipolis
           <button class="button" onclick="document.getElementById('modal-but').showModal()">Détails</button>
         </li>
         <li>
-          2019-2022 – Bac Général (Maths/NSI), Mention Bien
+          2019-2022 – Bac Général (Maths/NSI), Mention Bien
           <button class="button" onclick="document.getElementById('modal-bac').showModal()">Détails</button>
         </li>
       </ul>
@@ -154,18 +166,28 @@
 
     <!-- Modals formation -->
     <dialog id="modal-peip">
-      <h3>PEIP Polytech Nice</h3>
-      <p>Cycle préparatoire intégré 2022-2024 : formation généraliste (maths, physique, chimie, info), projets en groupe, réorientation vers un cursus pratique et informatique.</p>
+      <h3>PEIP Polytech Nice</h3><br/>
+      <p>Le cycle préparatoire intégré PEIP de Polytech est un cursus de deux ans préparant aux écoles d’ingénieurs du réseau.<br/><br/></p>
+      <p>J’y ai suivi des cours de mathématiques, physique, chimie et informatique, et travaillé sur des projets en groupe.<br/><br/></p>
+      <p>Cependant, la partie physique et certaines mathématiques abstraites ne correspondaient pas à mon intérêt, me poussant vers une formation plus pratique.<br/><br/></p>
+      <p>Malgré tout, cette période m’a apporté rigueur et méthode scientifique.<br/><br/></p>
       <button class="button close-btn" onclick="document.getElementById('modal-peip').close()">Fermer</button>
     </dialog>
+
     <dialog id="modal-but">
-      <h3>BUT Informatique</h3>
-      <p>Depuis 2022 : pédagogie par projets (SAÉ), développement d'applications, gestion de bases de données, travail en équipe et en conditions industrielles.</p>
+      <h3>BUT Informatique</h3><br/>
+      <p>Le BUT Informatique de l’IUT Sophia Antipolis est une formation professionnalisante de trois ans axée sur les projets.<br/><br/></p>
+      <p>Chaque semestre, j’ai réalisé des SAÉ : développement web, bases de données, scripts d’automatisation et applications mobiles.<br/><br/></p>
+      <p>Ces projets m’ont permis de consolider mes compétences techniques et de développer mon sens du travail en équipe.<br/><br/></p>
+      <p>La pédagogie par projet et le lien avec le monde professionnel font de ce cursus un choix idéal pour ma carrière.<br/><br/></p>
       <button class="button close-btn" onclick="document.getElementById('modal-but').close()">Fermer</button>
     </dialog>
+
     <dialog id="modal-bac">
-      <h3>Bac Général</h3>
-      <p>2019-2022 : spécialités NSI et maths expertes, mention Bien, fondations solides en algorithmique et réflexion scientifique.</p>
+      <h3>Bac Général</h3><br/>
+      <p>J’ai obtenu un Bac Général en 2022 avec les spécialités NSI et Mathématiques expertes, mention Bien.<br/><br/></p>
+      <p>Cette formation m’a apporté des bases solides en algorithmique, programmation et raisonnement scientifique.<br/><br/></p>
+      <p>Elle m’a également préparé au rythme d’études supérieures et à l’autonomie nécessaire pour réussir.<br/><br/></p>
       <button class="button close-btn" onclick="document.getElementById('modal-bac').close()">Fermer</button>
     </dialog>
 
@@ -181,15 +203,12 @@
   </main>
 
   <script>
-  // fermer la modal en cliquant sur le backdrop uniquement
-  document.querySelectorAll('dialog').forEach(dialog => {
-    dialog.addEventListener('click', event => {
-      if (event.target === dialog) {
-        dialog.close();
-      }
+    document.querySelectorAll('dialog').forEach(dialog => {
+      dialog.addEventListener('click', event => {
+        if (event.target === dialog) dialog.close();
+      });
     });
-  });
-</script>
+  </script>
 
   <footer>
     <p>&copy; 2025 Alexis Tyszka</p>
