@@ -54,23 +54,28 @@
     section {
       grid-column: span 2;
     }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
     .card {
       background-color: #1e1e1e;
       padding: 1.5rem;
       border-left: 4px solid var(--accent);
       border-radius: 8px;
-      margin-bottom: 2rem;
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      height: 100%;
     }
     .card-content {
       flex: 1;
-      padding-right: 1rem;
+      padding-bottom: 1rem;
     }
     .button {
-      display: inline-block;
+      align-self: flex-end;
+      margin-top: auto;
       padding: 0.6rem 1.2rem;
       background-color: var(--accent);
       color: black;
@@ -133,8 +138,8 @@
         <p>Je suis un étudiant en BUT Informatique à Sophia Tech, passionné par le développement full-stack, la gestion de projets et l'optimisation système. J'apprécie les projets concrets et techniques. Disponible pour une alternance d'un an à partir de septembre 2025.</p>
       </div>
     </section>
-    <br id="competences"/>
-    <section>
+
+    <section id="competences">
       <h2>Compétences techniques</h2>
       <ul>
         <li><strong>Langages :</strong> Java, Python, JavaScript, HTML/CSS, MySQL</li>
@@ -147,29 +152,31 @@
 
     <section id="projects">
       <h2>Projets</h2>
-      <div class="card">
-        <div class="card-content">
-          <h3>Portail des projets pour le BUT Info Nice</h3>
-          <p>Hub GitHub/Hackster.io regroupant tous les projets étudiants de l'IUT avec documentation et déploiement Docker.</p>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-content">
+            <h3>Portail des projets pour le BUT Info Nice</h3>
+            <p>Hub GitHub/Hackster.io regroupant tous les projets étudiants de l'IUT avec documentation et déploiement Docker.</p>
+          </div>
           <a href="https://www.hackster.io/529623/saes-iut-info-580d38" class="button" target="_blank">Voir sur Hackster.io</a>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-content">
-          <h3>Potify</h3>
-          <p>Application mobile développée avec Android Studio. Permet la lecture de musique locale, la création de playlists et la gestion utilisateur.</p>
+        <div class="card">
+          <div class="card-content">
+            <h3>Potify</h3>
+            <p>Application mobile développée avec Android Studio. Permet la lecture de musique locale, la création de playlists et la gestion utilisateur.</p>
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-content">
-          <h3>Jeu du Pendu Web</h3>
-          <p>Jeu en HTML/CSS/JS avec système de compte utilisateur, enregistrement des scores et interface dynamique.</p>
+        <div class="card">
+          <div class="card-content">
+            <h3>Jeu du Pendu Web</h3>
+            <p>Jeu en HTML/CSS/JS avec système de compte utilisateur, enregistrement des scores et interface dynamique.</p>
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-content">
-          <h3>Pipeline de traitement de données</h3>
-          <p>Automatisation d’un processus de collecte, filtrage et insertion en base de données, avec suivi d’état d’exécution.</p>
+        <div class="card">
+          <div class="card-content">
+            <h3>Pipeline de traitement de données</h3>
+            <p>Automatisation d’un processus de collecte, filtrage et insertion en base de données, avec suivi d’état d’exécution.</p>
+          </div>
         </div>
       </div>
     </section>
